@@ -1,0 +1,1334 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaSpace | FAQ</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080b14;
+            color: white;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            height: 75px;
+            padding: 0 8%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            background: rgba(8,11,20,0.95);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+
+        .logo span {
+            color: #7c5cff;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            color: #9da1b0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+
+        .nav-links .active {
+            color: #9b89ff;
+        }
+
+
+        .nav-button {
+            padding: 11px 22px;
+
+            border-radius: 30px;
+
+            background: #7c5cff;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 30px rgba(124,92,255,0.3);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .faq-hero {
+
+            min-height: 440px;
+
+            padding: 90px 8%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .hero-glow {
+
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            background: #7c5cff;
+
+            filter: blur(180px);
+
+            opacity: 0.13;
+        }
+
+
+        .faq-hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 800px;
+        }
+
+
+        .faq-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 8px 16px;
+
+            border-radius: 30px;
+
+            border: 1px solid
+                rgba(124,92,255,0.4);
+
+            background:
+                rgba(124,92,255,0.08);
+
+            color: #a394ff;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .faq-label span {
+
+            width: 6px;
+
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #7c5cff;
+
+            box-shadow:
+                0 0 12px #7c5cff;
+        }
+
+
+        .faq-hero h1 {
+
+            font-size: clamp(50px, 7vw, 80px);
+
+            line-height: 1;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .faq-hero h1 span {
+
+            color: #7c5cff;
+        }
+
+
+        .faq-hero p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #858a9a;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FAQ SECTION
+        ========================= */
+
+        .faq-section {
+
+            padding: 90px 8% 120px;
+
+            background: #0b0e18;
+        }
+
+
+        .faq-container {
+
+            max-width: 950px;
+
+            margin: auto;
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .faq-search {
+
+            max-width: 600px;
+
+            margin: 0 auto 60px;
+
+            position: relative;
+        }
+
+
+        .faq-search input {
+
+            width: 100%;
+
+            padding: 18px 55px 18px 22px;
+
+            border-radius: 15px;
+
+            border: 1px solid
+                rgba(255,255,255,0.1);
+
+            background: #111521;
+
+            color: white;
+
+            outline: none;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .faq-search input::placeholder {
+
+            color: #606575;
+        }
+
+
+        .faq-search input:focus {
+
+            border-color: #7c5cff;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(124,92,255,0.08);
+        }
+
+
+        .search-icon {
+
+            position: absolute;
+
+            right: 20px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #7c5cff;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           FAQ ITEM
+        ========================= */
+
+        .faq-item {
+
+            margin-bottom: 15px;
+
+            border-radius: 18px;
+
+            border: 1px solid
+                rgba(255,255,255,0.07);
+
+            background: #111521;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+
+        .faq-item:hover {
+
+            border-color:
+                rgba(124,92,255,0.3);
+        }
+
+
+        .faq-question {
+
+            width: 100%;
+
+            padding: 24px 25px;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            font-weight: 600;
+        }
+
+
+        .faq-question:hover {
+
+            color: #a596ff;
+        }
+
+
+        .faq-icon {
+
+            width: 32px;
+
+            height: 32px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                rgba(124,92,255,0.1);
+
+            color: #9a88ff;
+
+            font-size: 20px;
+
+            transition: 0.3s;
+        }
+
+
+        /* =========================
+           ANSWER
+        ========================= */
+
+        .faq-answer {
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            transition:
+                max-height 0.4s ease,
+                padding 0.4s ease;
+        }
+
+
+        .faq-answer p {
+
+            padding: 0 25px 25px;
+
+            color: #858a9a;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            max-width: 800px;
+        }
+
+
+        /* ACTIVE */
+
+        .faq-item.active {
+
+            border-color:
+                rgba(124,92,255,0.4);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #151927,
+                    #10131e
+                );
+        }
+
+
+        .faq-item.active .faq-answer {
+
+            max-height: 250px;
+        }
+
+
+        .faq-item.active .faq-icon {
+
+            transform: rotate(45deg);
+
+            background: #7c5cff;
+
+            color: white;
+        }
+
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .faq-categories {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 45px;
+        }
+
+
+        .category {
+
+            padding: 9px 17px;
+
+            border-radius: 30px;
+
+            border: 1px solid
+                rgba(255,255,255,0.08);
+
+            background: #111521;
+
+            color: #7e8392;
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .category:hover,
+        .category.active {
+
+            background:
+                rgba(124,92,255,0.12);
+
+            color: #a292ff;
+
+            border-color:
+                rgba(124,92,255,0.35);
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .faq-cta {
+
+            padding: 100px 8%;
+
+            text-align: center;
+
+            background: #080b14;
+        }
+
+
+        .cta-box {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 70px 30px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #17122b,
+                    #101521
+                );
+
+            border: 1px solid
+                rgba(124,92,255,0.2);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .cta-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+
+            height: 250px;
+
+            background: #7c5cff;
+
+            filter: blur(130px);
+
+            opacity: 0.13;
+
+            left: 50%;
+
+            top: -180px;
+
+            transform: translateX(-50%);
+        }
+
+
+        .cta-box h2 {
+
+            position: relative;
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .cta-box p {
+
+            position: relative;
+
+            color: #858a9a;
+
+            margin-bottom: 30px;
+        }
+
+
+        .cta-button {
+
+            position: relative;
+
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            border-radius: 30px;
+
+            background: #7c5cff;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .cta-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 35px
+                rgba(124,92,255,0.3);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding: 30px 8%;
+
+            border-top: 1px solid
+                rgba(255,255,255,0.07);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #656a78;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                padding: 0 5%;
+            }
+
+
+            .nav-links {
+
+                display: none;
+            }
+
+
+            .nav-button {
+
+                padding: 9px 16px;
+            }
+
+
+            .faq-hero {
+
+                padding: 75px 5%;
+            }
+
+
+            .faq-hero h1 {
+
+                font-size: 50px;
+            }
+
+
+            .faq-section {
+
+                padding: 70px 5% 90px;
+            }
+
+
+            .faq-question {
+
+                padding: 20px;
+
+                font-size: 14px;
+
+                gap: 15px;
+            }
+
+
+            .faq-answer p {
+
+                padding:
+                    0 20px 20px;
+
+                font-size: 13px;
+            }
+
+
+            .faq-cta {
+
+                padding: 70px 5%;
+            }
+
+
+            .cta-box {
+
+                padding: 55px 20px;
+            }
+
+
+            .cta-box h2 {
+
+                font-size: 30px;
+            }
+
+
+            footer {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            Nova<span>Space</span>
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="faq.html" class="active">
+                    FAQ
+                </a>
+            </li>
+
+        </ul>
+
+
+        <a href="#" class="nav-button">
+            Get Started
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="faq-hero">
+
+        <div class="hero-glow"></div>
+
+
+        <div class="faq-hero-content">
+
+            <div class="faq-label">
+
+                <span></span>
+
+                HELP CENTER
+
+            </div>
+
+
+            <h1>
+
+                Questions?
+                <span>We've got answers.</span>
+
+            </h1>
+
+
+            <p>
+
+                Find answers to the most common questions
+                about NovaSpace, our services and the way
+                we work.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FAQ
+    ========================= -->
+
+    <section class="faq-section">
+
+        <div class="faq-container">
+
+
+            <!-- SEARCH -->
+
+            <div class="faq-search">
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Search your question..."
+                >
+
+                <div class="search-icon">
+                    ⌕
+                </div>
+
+            </div>
+
+
+
+            <!-- CATEGORIES -->
+
+            <div class="faq-categories">
+
+                <button class="category active">
+                    All
+                </button>
+
+                <button class="category">
+                    General
+                </button>
+
+                <button class="category">
+                    Services
+                </button>
+
+                <button class="category">
+                    Pricing
+                </button>
+
+                <button class="category">
+                    Support
+                </button>
+
+            </div>
+
+
+
+            <!-- FAQ 1 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        What is NovaSpace?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+
+                        NovaSpace is a digital creative studio
+                        focused on building modern websites,
+                        digital products and experiences for
+                        businesses, creators and ambitious brands.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 2 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        What services do you provide?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+
+                        We provide website development, UI/UX
+                        design, branding, web applications and
+                        custom digital solutions tailored to
+                        your specific requirements.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 3 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        How long does a project take?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+
+                        Project timelines depend on the scope
+                        and complexity. A simple website may
+                        take a few weeks, while larger custom
+                        applications can require several months.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 4 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Do you create custom designs?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+
+                        Yes. Every project can be designed
+                        around your brand, audience and goals.
+                        We focus on creating unique experiences
+                        instead of relying on generic templates.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 5 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Can I request changes during development?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+
+                        Absolutely. We keep the development
+                        process collaborative so feedback and
+                        improvements can be incorporated as
+                        the project progresses.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 6 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        Do you provide ongoing support?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+
+                        Yes. We can provide ongoing maintenance,
+                        technical support, updates and improvements
+                        after your project has been launched.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FAQ 7 -->
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span>
+                        How can I start a project with you?
+                    </span>
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <p>
+
+                        Simply contact us with your idea,
+                        requirements and goals. We'll discuss
+                        your project, understand what you need
+                        and help you decide the next steps.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="faq-cta">
+
+        <div class="cta-box">
+
+            <h2>
+                Still have questions?
+            </h2>
+
+
+            <p>
+                We're always happy to help.
+            </p>
+
+
+            <a href="#" class="cta-button">
+                Contact Us →
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div>
+            © 2026 NovaSpace
+        </div>
+
+        <div>
+            Built for the future.
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           FAQ ACCORDION
+        ========================= */
+
+        const faqItems =
+            document.querySelectorAll(".faq-item");
+
+
+        faqItems.forEach(item => {
+
+            const question =
+                item.querySelector(".faq-question");
+
+
+            question.addEventListener("click", () => {
+
+                const isActive =
+                    item.classList.contains("active");
+
+
+                // Close all other FAQs
+
+                faqItems.forEach(otherItem => {
+
+                    otherItem.classList.remove("active");
+
+                });
+
+
+                // Open clicked FAQ
+
+                if (!isActive) {
+
+                    item.classList.add("active");
+
+                }
+
+            });
+
+        });
+
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        const search =
+            document.getElementById("search");
+
+
+        search.addEventListener("input", () => {
+
+            const value =
+                search.value.toLowerCase().trim();
+
+
+            faqItems.forEach(item => {
+
+                const question =
+                    item.querySelector(
+                        ".faq-question span"
+                    ).textContent.toLowerCase();
+
+
+                const answer =
+                    item.querySelector(
+                        ".faq-answer"
+                    ).textContent.toLowerCase();
+
+
+                if (
+                    question.includes(value) ||
+                    answer.includes(value)
+                ) {
+
+                    item.style.display = "block";
+
+                } else {
+
+                    item.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+
+
+        /* =========================
+           CATEGORY BUTTONS
+        ========================= */
+
+        const categories =
+            document.querySelectorAll(".category");
+
+
+        categories.forEach(category => {
+
+            category.addEventListener("click", () => {
+
+                categories.forEach(btn => {
+
+                    btn.classList.remove("active");
+
+                });
+
+
+                category.classList.add("active");
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
+```

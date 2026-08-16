@@ -1,0 +1,639 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaSpace | Modern Digital Experience</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #080b14;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(8,11,20,0.85);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #7c5cff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #c9cbd4;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-btn {
+            padding: 11px 22px;
+            border-radius: 25px;
+            background: #7c5cff;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #6948ff;
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 8%;
+            gap: 50px;
+        }
+
+        .hero-content {
+            max-width: 620px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid rgba(124,92,255,0.5);
+            border-radius: 30px;
+            color: #a998ff;
+            font-size: 13px;
+            margin-bottom: 25px;
+            background: rgba(124,92,255,0.08);
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #7c5cff;
+        }
+
+        .hero p {
+            color: #a9acb8;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .primary-btn {
+            padding: 15px 28px;
+            border-radius: 30px;
+            background: #7c5cff;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(124,92,255,0.3);
+        }
+
+        .secondary-btn {
+            padding: 15px 28px;
+            border-radius: 30px;
+            border: 1px solid #303443;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .secondary-btn:hover {
+            background: #151927;
+        }
+
+        /* HERO CARD */
+
+        .hero-card {
+            width: 420px;
+            height: 430px;
+            border-radius: 30px;
+            background: linear-gradient(
+                145deg,
+                #171b2b,
+                #0d101b
+            );
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 25px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: #7c5cff;
+            filter: blur(100px);
+            opacity: 0.25;
+            top: -80px;
+            right: -50px;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            color: #b8bac5;
+        }
+
+        .status {
+            background: rgba(52,211,153,0.12);
+            color: #34d399;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .circle {
+            width: 190px;
+            height: 190px;
+            margin: 20px auto;
+            border-radius: 50%;
+            border: 15px solid #252a3a;
+            border-top-color: #7c5cff;
+            border-right-color: #7c5cff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-35deg);
+        }
+
+        .circle-content {
+            text-align: center;
+            transform: rotate(35deg);
+        }
+
+        .circle-content h2 {
+            font-size: 40px;
+        }
+
+        .circle-content p {
+            font-size: 12px;
+            color: #8f93a1;
+            margin: 5px 0 0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 35px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 20px;
+        }
+
+        .stat p {
+            font-size: 11px;
+            color: #777b89;
+            margin-top: 5px;
+        }
+
+        /* FEATURES */
+
+        .features {
+            padding: 80px 8%;
+            background: #0b0e18;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .section-heading h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: #9094a3;
+            line-height: 1.7;
+        }
+
+        .cards {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: 22px;
+            background: #111521;
+            border: 1px solid rgba(255,255,255,0.07);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(124,92,255,0.4);
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            background: rgba(124,92,255,0.12);
+            color: #9a85ff;
+            font-size: 23px;
+            margin-bottom: 22px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #858997;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .cta-box {
+            padding: 70px 30px;
+            border-radius: 30px;
+            background: linear-gradient(
+                135deg,
+                #17122b,
+                #101522
+            );
+            border: 1px solid rgba(124,92,255,0.2);
+        }
+
+        .cta h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #999dab;
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 8%;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            justify-content: space-between;
+            color: #737785;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 420px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .hero {
+                padding: 50px 5%;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+            }
+
+            .hero-card {
+                height: 390px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Nova<span>Space</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#" class="nav-btn">
+            Get Started
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✦ The future starts here
+            </div>
+
+            <h1>
+                Build something
+                <span>extraordinary.</span>
+            </h1>
+
+            <p>
+                Create powerful digital experiences with a modern
+                platform designed for speed, creativity and growth.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#features" class="primary-btn">
+                    Explore Now →
+                </a>
+
+                <a href="#about" class="secondary-btn">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD CARD -->
+
+        <div class="hero-card">
+
+            <div class="card-top">
+
+                <div class="card-title">
+                    Performance
+                </div>
+
+                <div class="status">
+                    ● Live
+                </div>
+
+            </div>
+
+            <div class="circle">
+
+                <div class="circle-content">
+                    <h2>87%</h2>
+                    <p>Efficiency</p>
+                </div>
+
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>24.8K</h3>
+                    <p>Visitors</p>
+                </div>
+
+                <div class="stat">
+                    <h3>92%</h3>
+                    <p>Growth</p>
+                </div>
+
+                <div class="stat">
+                    <h3>4.9</h3>
+                    <p>Rating</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features" id="features">
+
+        <div class="section-heading">
+
+            <h2>Everything you need.</h2>
+
+            <p>
+                Powerful tools and beautiful experiences
+                combined into one simple platform.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="feature-card">
+
+                <div class="icon">⚡</div>
+
+                <h3>Lightning Fast</h3>
+
+                <p>
+                    Optimized performance that keeps your
+                    website fast and responsive on every device.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">◈</div>
+
+                <h3>Modern Design</h3>
+
+                <p>
+                    Clean and beautiful interfaces designed
+                    to create an amazing user experience.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">🔒</div>
+
+                <h3>Secure Platform</h3>
+
+                <p>
+                    Built with security and reliability in mind
+                    so your data stays protected.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta" id="contact">
+
+        <div class="cta-box">
+
+            <h2>Ready to get started?</h2>
+
+            <p>
+                Turn your idea into something incredible today.
+            </p>
+
+            <a href="#" class="primary-btn">
+                Start Building →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            © 2026 NovaSpace
+        </div>
+
+        <div>
+            Designed for the future.
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
